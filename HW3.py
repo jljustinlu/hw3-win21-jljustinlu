@@ -1,6 +1,6 @@
-﻿# Your name:
-# Your student id:
-# Your email:
+﻿# Your name: Justin Lu
+# Your student id: 49094632
+# Your email: justinlu@umich.edu
 # List who you have worked with on this homework:
 
 
