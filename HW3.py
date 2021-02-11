@@ -35,7 +35,7 @@ class Magic_8:
     # it returns the answer at the picked index
 
     def shake_ball(self):
-        index = random.randint(0, len(self.answer_list - 1))
+        index = random.randint(0, len(self.answer_list) - 1)
         self.answer_history_list.append(index)
         return self.answer_list[index]
 
@@ -50,7 +50,7 @@ class Magic_8:
         if question in self.question_list:
             return "I already answered that question!"
         self.question_list.append(question)
-        self.shake_ball()
+        return self.shake_ball()
 
 
     # create the print_history method
@@ -63,7 +63,7 @@ class Magic_8:
         if not self.answer_history_list:
             print("None yet")
         for index in range(len(self.answer_history_list)):
-            print(index, self.question_list[index], self.answer_list[index], sep = '\n')
+            print([index], self.question_list[index], self.answer_list[index])
 
             
     # EXTRA POINTS
@@ -86,13 +86,20 @@ def main():
 
     # get the first question or quit
 
+    question = input("Ask a question or type quit: ")
+
     # loop while question is not "quit"
+    while question != "quit":
+
    
         # get an answer from check_question
+        answer = bot.check_question(question)
 
         # print question - answer
+        print(answer)
 
         # get the next question or quit 
+        question = input("Ask a question or type quit: ")
 
 def test():
     
@@ -135,4 +142,4 @@ def test():
 # only run the main function if this file is being run (not imported)
 if __name__ == "__main__":
     main()
-    #test() - uncomment when you are ready to test your magic 8 ball
+    test()
