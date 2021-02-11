@@ -16,6 +16,11 @@ class Magic_8:
     # it sets this object's question_list (instance variable) to the an empty list
     # it sets this object's answer_history_list (instance variable) to an empty list 
 
+    def __init__(self, answers):
+        self.answer_list = answers
+        self.question_list = []
+        self.answer_history_list = []
+
     # create the __str__ method
     # It should return a string with all the possible answers 
     # in answer_list separated by commas
@@ -50,7 +55,7 @@ class Magic_8:
     # hence the function should return "longest run was length of 3 for index 4
     
 
-def main():
+    def main():
 
     # You are welcome to replace the answer_list with your desired answers
     answer_list = ["Yes", "No", "Ask again", "Maybe", "Not clear"]
