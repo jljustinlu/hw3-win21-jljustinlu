@@ -26,10 +26,19 @@ class Magic_8:
     # in answer_list separated by commas
     # For example : "Yes, No, Not clear"
 
+    def __str__(self):
+        return str(self.answer_list)
+
     # create the shake_ball method
     # it randomly picks an index from 0 to the number of items in the answer_list minus one
     # it adds that index to the end of the answer_history_list
     # it returns the answer at the picked index
+
+    def shake_ball(self):
+        index = random.randint(0, len(self.answer_list - 1))
+        self.answer_history_list.append(index)
+        return self.answer_list[index]
+
 
     # create the check_question method that takes a question
     # it checks if the question is in the question_list and if so returns 
@@ -37,11 +46,25 @@ class Magic_8:
     # Otherwise it adds the question to the question_list and
     # returns the answer from shake_ball
 
+    def check_question(self, question):
+        if question in self.question_list:
+            return "I already answered that question!"
+        self.question_list.append(question)
+        self.shake_ball()
+
+
     # create the print_history method
     # prints "[answer index] question - answer" for each of the indices in the answer_history_list
     # from the first to the last with each on a single line.  If there are not items in the 
     # answer_history_list it prints "None yet"
     # it does not return anything!
+
+    def print_history(self):
+        if not self.answer_history_list:
+            print("None yet")
+        for index in range(len(self.answer_history_list)):
+            print(index, self.question_list[index], self.answer_list[index], sep = '\n')
+
             
     # EXTRA POINTS
     # create the generate_n_responses method
@@ -55,7 +78,7 @@ class Magic_8:
     # hence the function should return "longest run was length of 3 for index 4
     
 
-    def main():
+def main():
 
     # You are welcome to replace the answer_list with your desired answers
     answer_list = ["Yes", "No", "Ask again", "Maybe", "Not clear"]
