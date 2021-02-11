@@ -63,7 +63,7 @@ class Magic_8:
         if not self.answer_history_list:
             print("None yet")
         for index in range(len(self.answer_history_list)):
-            print([index], self.question_list[index], self.answer_list[index])
+            print([index], self.question_list[index], "-", self.answer_list[index])
 
             
     # EXTRA POINTS
